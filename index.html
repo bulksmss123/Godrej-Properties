@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Godrej Properties | Powered by GETTA BUSINESS VENTURES</title>
+    <!-- Google Fonts & Simple CSS Reset -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+            color: #1e2a3e;
+            line-height: 1.5;
+            scroll-behavior: smooth;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Header & Nav */
+        header {
+            background: #ffffff;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .nav-bar {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 0;
+        }
+        .logo h1 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #0f3b2c;
+        }
+        .logo p {
+            font-size: 0.7rem;
+            letter-spacing: 1px;
+            color: #4a6a5e;
+        }
+        .nav-links {
+            display: flex;
+            gap: 28px;
+            flex-wrap: wrap;
+        }
+        .nav-links a {
+            text-decoration: none;
+            font-weight: 500;
+            color: #1e2a3e;
+            transition: 0.2s;
+        }
+        .nav-links a:hover, .nav-links a.active {
+            color: #c49a6c;
+            border-bottom: 2px solid #c49a6c;
+            padding-bottom: 4px;
+        }
+        /* Mobile menu simple */
+        @media (max-width: 768px) {
+            .nav-bar {
+                flex-direction: column;
+                gap: 12px;
+            }
+            .nav-links {
+                gap: 18px;
+                justify-content: center;
+            }
+        }
+
+        /* Hero Section with Real Estate image background */
+        .hero {
+            background: linear-gradient(92deg, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.4) 100%), url('https://placehold.co/1600x600/1e4d3e/white?text=Godrej+Properties+Luxury+Living') center/cover no-repeat;
+            background-size: cover;
+            background-position: center 30%;
+            padding: 100px 0;
+            color: white;
+        }
+        /* better bg via unsplash premium-like but we use demo high quality placeholder? but we embed real img? I'll use images.unsplash.com for realistic property */
+        /* For realistic beautiful picture: I'll embed actual property imagery via unsplash - luxury estate */
+        .hero {
+            background-image: linear-gradient(95deg, rgba(0,0,0,0.6), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+        .hero-content {
+            max-width: 700px;
+        }
+        .hero h2 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        .btn {
+            display: inline-block;
+            background: #c49a6c;
+            color: white;
+            padding: 12px 28px;
+            border-radius: 40px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: 0.2s;
+            border: none;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background: #a87b4e;
+            transform: translateY(-2px);
+        }
+
+        /* Section common */
+        section {
+            padding: 70px 0;
+        }
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 40px;
+            color: #0f3b2c;
+            border-left: 6px solid #c49a6c;
+            padding-left: 20px;
+        }
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+        .card {
+            background: white;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 12px 30px rgba(0,0,0,0.05);
+            transition: 0.2s;
+        }
+        .card-img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+        .card-content {
+            padding: 24px;
+        }
+        .card-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 12px;
+        }
+        .contact-info {
+            background: #eef2f0;
+            border-radius: 28px;
+            padding: 32px;
+            text-align: center;
+        }
+        .contact-details {
+            font-size: 1.2rem;
+            margin: 20px 0;
+        }
+        .contact-details p {
+            margin: 10px 0;
+        }
+        .address {
+            font-style: normal;
+            margin-top: 20px;
+            font-size: 1rem;
+            color: #2c3e3a;
+        }
+        footer {
+            background: #0f2b23;
+            color: #d1d9d0;
+            padding: 40px 0 20px;
+            font-size: 0.9rem;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        .footer-grid h4 {
+            color: #c49a6c;
+            margin-bottom: 16px;
+            font-weight: 600;
+        }
+        .footer-grid a {
+            color: #cfddd6;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 10px;
+        }
+        .footer-grid a:hover {
+            color: #c49a6c;
+        }
+        .copyright {
+            text-align: center;
+            border-top: 1px solid #2d4a3e;
+            padding-top: 24px;
+            margin-top: 20px;
+            font-size: 0.8rem;
+        }
+        /* pages content block */
+        .page-content {
+            background: white;
+            border-radius: 28px;
+            padding: 40px;
+            box-shadow: 0 6px 14px rgba(0,0,0,0.03);
+        }
+        .page-content h2 {
+            color: #0f3b2c;
+            margin-bottom: 20px;
+        }
+        .page-content h3 {
+            margin: 20px 0 10px;
+        }
+        .contact-flex {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-top: 30px;
+        }
+        .contact-detail-box {
+            background: #f9f6f0;
+            padding: 20px;
+            border-radius: 20px;
+            flex: 1;
+        }
+        .back-home {
+            margin-top: 30px;
+            display: inline-block;
+        }
+        hr {
+            margin: 20px 0;
+        }
+        .real-img {
+            width: 100%;
+            border-radius: 24px;
+            margin-bottom: 20px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+        button.nav-link {
+            background: none;
+            border: none;
+            font: inherit;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container nav-bar">
+        <div class="logo">
+            <h1>Godrej Properties</h1>
+            <p>Powered by GETTA BUSINESS VENTURES PVT LTD</p>
+        </div>
+        <div class="nav-links" id="navLinks">
+            <a href="#" data-page="home" class="active">Home</a>
+            <a href="#" data-page="about">About</a>
+            <a href="#" data-page="contact">Contact</a>
+            <a href="#" data-page="privacy">Privacy Policy</a>
+            <a href="#" data-page="terms">Terms & Conditions</a>
+        </div>
+    </div>
+</header>
+
+<main id="main-content">
+    <!-- Dynamic content will load here -->
+    <div id="page-container"></div>
+</main>
+
+<footer>
+    <div class="container">
+        <div class="footer-grid">
+            <div>
+                <h4>Godrej Properties</h4>
+                <p>Luxury redefined, trust since decades. Powered by GETTA BUSINESS VENTURES PRIVATE LIMITED, delivering excellence in real estate.</p>
+            </div>
+            <div>
+                <h4>Quick Links</h4>
+                <a href="#" data-page="about">About Us</a>
+                <a href="#" data-page="contact">Contact</a>
+                <a href="#" data-page="privacy">Privacy Policy</a>
+                <a href="#" data-page="terms">Terms & Conditions</a>
+            </div>
+            <div>
+                <h4>Contact</h4>
+                <p>📞 9606904856</p>
+                <p>✉️ drharish77@gmail.com</p>
+                <p>📍 Ground floor Survey No 269/3, Door No 1302, 6th Cross Road, KN Extension, Yeshwanthpur, Bengaluru</p>
+            </div>
+        </div>
+        <div class="copyright">
+            © 2025 Godrej Properties. All rights reserved. | Powered by GETTA BUSINESS VENTURES PRIVATE LIMITED
+        </div>
+    </div>
+</footer>
+
+<script>
+    // Main Pages Data
+    const pagesData = {
+        home: {
+            title: "Home",
+            content: `
+                <div class="hero">
+                    <div class="container">
+                        <div class="hero-content">
+                            <h2>Discover Your Dream Home</h2>
+                            <p>Premium residential & commercial spaces by Godrej Properties, delivered with excellence by GETTA BUSINESS VENTURES PRIVATE LIMITED. Experience luxury, trust, and innovation in Yeshwanthpur, Bengaluru.</p>
+                            <a href="#" data-page="contact" class="btn">Enquire Now →</a>
+                        </div>
+                    </div>
+                </div>
+                <section>
+                    <div class="container">
+                        <h2 class="section-title">Featured Projects</h2>
+                        <div class="grid-2">
+                            <div class="card">
+                                <img class="card-img" src="https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Luxury apartment">
+                                <div class="card-content">
+                                    <h3>Godrej Woodscapes</h3>
+                                    <p>Premium 2 & 3 BHK apartments surrounded by greenery, world-class amenities and clubhouse.</p>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <img class="card-img" src="https://images.unsplash.com/photo-1600585154526-990dced4db3d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Modern Villa">
+                                <div class="card-content">
+                                    <h3>Godrej United</h3>
+                                    <p>Smart luxury residences with modern facilities, located in the heart of Yeshwanthpur.</p>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <img class="card-img" src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Commercial">
+                                <div class="card-content">
+                                    <h3>Commercial Spaces</h3>
+                                    <p>Premium office spaces and retail outlets for businesses that demand the best.</p>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <img class="card-img" src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Exterior">
+                                <div class="card-content">
+                                    <h3>Godrej Royale</h3>
+                                    <p>Ultra-luxury penthouses with breathtaking views and signature Godrej craftsmanship.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="contact-info" style="margin-top: 40px;">
+                            <h3>Talk to our Real Estate Expert</h3>
+                            <div class="contact-details">
+                                <p>📞 9606904856</p>
+                                <p>✉️ drharish77@gmail.com</p>
+                                <address class="address">📍 Ground floor Survey No 269/3 Door No 1302 6th Cross Road KN EXTENTION Yeshwanthpur Bengaluru</address>
+                            </div>
+                            <a href="#" data-page="contact" class="btn">Get in Touch</a>
+                        </div>
+                    </div>
+                </section>
+            `
+        },
+        about: {
+            title: "About Us",
+            content: `
+                <div class="container" style="padding: 60px 0;">
+                    <div class="page-content">
+                        <img class="real-img" src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Godrej Properties building">
+                        <h2>About Godrej Properties</h2>
+                        <p>Godrej Properties, part of the 125+ year old Godrej Group, is one of India's premier real estate developers known for creating iconic residential and commercial destinations. With a legacy of trust, innovation, and sustainability, Godrej Properties delivers world-class living experiences across major cities.</p>
+                        <h3>Powered by GETTA BUSINESS VENTURES PRIVATE LIMITED</h3>
+                        <p>In Bengaluru, Godrej Properties is proudly represented and powered by <strong>GETTA BUSINESS VENTURES PRIVATE LIMITED</strong> — a forward-thinking real estate firm committed to transparency, client satisfaction, and market expertise. Our office is located at Yeshwanthpur, the heart of North Bengaluru's growth corridor.</p>
+                        <p>We offer end-to-end real estate solutions: from luxury residential apartments to premium commercial investments. Our dedicated team ensures that every client receives personalized guidance, legal due diligence, and access to the finest Godrej projects.</p>
+                        <hr>
+                        <h3>Our Mission</h3>
+                        <p>To redefine urban living by blending Godrej's architectural brilliance with GETTA BUSINESS VENTURES’ client-centric approach, ensuring dream homes and profitable investments for every stakeholder.</p>
+                        <h3>Why Choose Us?</h3>
+                        <ul style="margin-left: 20px; margin-top: 10px;">
+                            <li>✓ Direct pricing from Godrej Properties</li>
+                            <li>✓ Expert guidance on RERA-approved projects</li>
+                            <li>✓ Transparent documentation & legal support</li>
+                            <li>✓ Over a decade of combined realty experience</li>
+                        </ul>
+                        <a href="#" data-page="contact" class="btn back-home">Contact Us →</a>
+                    </div>
+                </div>
+            `
+        },
+        contact: {
+            title: "Contact",
+            content: `
+                <div class="container" style="padding: 60px 0;">
+                    <div class="page-content">
+                        <h2>Get in Touch</h2>
+                        <p>We’d love to hear from you! Whether you’re looking to buy a home, invest in commercial property, or have any queries, reach out to us.</p>
+                        <div class="contact-flex">
+                            <div class="contact-detail-box">
+                                <h3>📍 Visit Us</h3>
+                                <address style="font-style: normal;">
+                                    Ground floor Survey No 269/3,<br>
+                                    Door No 1302, 6th Cross Road,<br>
+                                    KN EXTENTION, Yeshwanthpur,<br>
+                                    Bengaluru - 560022
+                                </address>
+                                <hr>
+                                <p><strong>📞 Phone:</strong> 9606904856</p>
+                                <p><strong>✉️ Email:</strong> drharish77@gmail.com</p>
+                                <p><strong>⏰ Office Hours:</strong> Mon-Sat: 10 AM – 7 PM</p>
+                            </div>
+                            <div class="contact-detail-box">
+                                <h3>Enquiry Form</h3>
+                                <p>Interested in Godrej Properties? Leave your contact and our real estate expert will get back soon.</p>
+                                <form id="quick-form">
+                                    <input type="text" placeholder="Your Name" style="width:100%; padding:12px; margin:8px 0; border-radius:40px; border:1px solid #ccc;" required>
+                                    <input type="tel" placeholder="Phone Number" style="width:100%; padding:12px; margin:8px 0; border-radius:40px; border:1px solid #ccc;" required>
+                                    <input type="email" placeholder="Email Address" style="width:100%; padding:12px; margin:8px 0; border-radius:40px; border:1px solid #ccc;" required>
+                                    <button type="submit" class="btn" style="margin-top: 10px;">Send Enquiry</button>
+                                </form>
+                                <p style="font-size:0.8rem; margin-top:12px;">We respect your privacy. Your details are safe with us.</p>
+                            </div>
+                        </div>
+                        <div style="margin-top: 30px; background:#eef2f0; border-radius:20px; padding:20px; text-align:center;">
+                            <h3>Connect with our expert</h3>
+                            <p style="font-size:1.2rem;">📞 Call or WhatsApp: 9606904856</p>
+                        </div>
+                    </div>
+                </div>
+            `
+        },
+        privacy: {
+            title: "Privacy Policy",
+            content: `
+                <div class="container" style="padding: 60px 0;">
+                    <div class="page-content">
+                        <h2>Privacy Policy</h2>
+                        <p><strong>Effective Date:</strong> 1st April 2025</p>
+                        <p>Godrej Properties (powered by GETTA BUSINESS VENTURES PRIVATE LIMITED) respects your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website or interact with us.</p>
+                        <h3>Information We Collect</h3>
+                        <p>We may collect personal information such as your name, email address, phone number, and location when you voluntarily submit an enquiry or contact us.</p>
+                        <h3>Use of Your Information</h3>
+                        <p>We use the information to respond to inquiries, provide property updates, improve services, and comply with legal obligations. We never sell or rent your personal data to third parties for marketing.</p>
+                        <h3>Data Security</h3>
+                        <p>We implement appropriate technical measures to protect your information. However, no transmission over the internet is 100% secure.</p>
+                        <h3>Third-Party Links</h3>
+                        <p>Our website may contain links to external sites. We are not responsible for their privacy practices.</p>
+                        <h3>Contact Us</h3>
+                        <p>If you have questions about this Privacy Policy, please contact us at drharish77@gmail.com or call 9606904856.</p>
+                        <a href="#" data-page="home" class="btn back-home">← Back to Home</a>
+                    </div>
+                </div>
+            `
+        },
+        terms: {
+            title: "Terms & Conditions",
+            content: `
+                <div class="container" style="padding: 60px 0;">
+                    <div class="page-content">
+                        <h2>Terms & Conditions</h2>
+                        <p>Welcome to Godrej Properties website (Powered by GETTA BUSINESS VENTURES PRIVATE LIMITED). By accessing this website, you agree to comply with these terms.</p>
+                        <h3>Use of Website</h3>
+                        <p>The content provided is for general information and does not constitute legal or financial advice. Property details, images, and specifications are indicative and subject to change without notice.</p>
+                        <h3>Intellectual Property</h3>
+                        <p>All trademarks, logos, and content are owned by Godrej Properties and GETTA BUSINESS VENTURES PRIVATE LIMITED. Unauthorized reproduction is prohibited.</p>
+                        <h3>Limitation of Liability</h3>
+                        <p>We do not guarantee the accuracy or completeness of project details. You are advised to verify all information, including RERA registration, before any transaction. GETTA BUSINESS VENTURES PRIVATE LIMITED shall not be liable for any direct or indirect damages arising from reliance on this website.</p>
+                        <h3>Governing Law</h3>
+                        <p>These terms shall be governed by the laws of India, and disputes subject to jurisdiction of Bengaluru courts.</p>
+                        <h3>Modifications</h3>
+                        <p>We reserve the right to update these Terms & Conditions at any time. Continued use constitutes acceptance.</p>
+                        <p><strong>Contact:</strong> 9606904856 / drharish77@gmail.com </p>
+                        <a href="#" data-page="home" class="btn back-home">← Back to Home</a>
+                    </div>
+                </div>
+            `
+        }
+    };
+
+    // Current active page
+    let currentPage = "home";
+
+    function renderPage(pageId) {
+        const page = pagesData[pageId];
+        if (!page) return;
+        currentPage = pageId;
+        const container = document.getElementById("page-container");
+        if (container) {
+            container.innerHTML = page.content;
+        }
+        // update active nav styling
+        const navLinks = document.querySelectorAll("#navLinks a");
+        navLinks.forEach(link => {
+            const linkPage = link.getAttribute("data-page");
+            if (linkPage === pageId) {
+                link.classList.add("active");
+            } else {
+                link.classList.remove("active");
+            }
+        });
+        // reattach any dynamic click handlers for internal data-page links (for any newly rendered buttons/links)
+        attachPageLinkHandlers();
+        // attach form submit if on contact page
+        if (pageId === "contact") {
+            const form = document.getElementById("quick-form");
+            if (form) {
+                form.onsubmit = function(e) {
+                    e.preventDefault();
+                    alert("Thank you! Our real estate expert from GETTA BUSINESS VENTURES will contact you shortly.");
+                    form.reset();
+                };
+            }
+        }
+        // scroll to top on page change
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    function attachPageLinkHandlers() {
+        // all elements that have data-page attribute and are links or buttons
+        const elements = document.querySelectorAll("[data-page]");
+        elements.forEach(el => {
+            // avoid duplicate listeners
+            if (el.getAttribute("data-listener") === "true") return;
+            const targetPage = el.getAttribute("data-page");
+            if (targetPage && pagesData[targetPage]) {
+                el.addEventListener("click", (e) => {
+                    e.preventDefault();
+                    renderPage(targetPage);
+                });
+                el.setAttribute("data-listener", "true");
+            }
+        });
+    }
+
+    // initial load
+    function init() {
+        renderPage("home");
+        // also handle the initial nav links listener and any further ones
+        attachPageLinkHandlers();
+        // footer quick links also need to be re-checked after render
+        document.addEventListener("click", (e) => {
+            // for any dynamically added elements that weren't caught,
+            // but attachPageLinkHandlers ensures all existing ones on each render
+            // we call after each render, but to be safe: if target has data-page
+            const target = e.target.closest("[data-page]");
+            if (target && target.getAttribute("data-page") && pagesData[target.getAttribute("data-page")]) {
+                e.preventDefault();
+                renderPage(target.getAttribute("data-page"));
+            }
+        });
+    }
+
+    init();
+</script>
+<!-- extra style for form, address -->
+<style>
+    input, textarea, button {
+        font-family: inherit;
+    }
+    input:focus {
+        outline: none;
+        border-color: #c49a6c;
+    }
+    .active {
+        color: #c49a6c;
+        font-weight: 600;
+        border-bottom: 2px solid #c49a6c;
+        padding-bottom: 4px;
+    }
+    footer a {
+        cursor: pointer;
+    }
+    .contact-detail-box hr {
+        margin: 16px 0;
+    }
+    .real-img {
+        max-height: 380px;
+        width: 100%;
+        object-fit: cover;
+    }
+</style>
+</body>
+</html>
